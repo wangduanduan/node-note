@@ -1,9 +1,22 @@
+<!-- TOC -->
+
+- [1. 环境](#1-环境)
+- [2. 基本使用](#2-基本使用)
+- [3. 传参与this指向](#3-传参与this指向)
+- [4. 同步还是异步调用listeners?](#4-同步还是异步调用listeners)
+- [5. 如何只订阅一次事件？](#5-如何只订阅一次事件)
+- [6. 不订阅，就发飙的错误事件](#6-不订阅就发飙的错误事件)
+- [7. 内部事件 newListener与removeListener](#7-内部事件-newlistener与removelistener)
+- [8. 事件监听数量限制](#8-事件监听数量限制)
+
+<!-- /TOC -->
+
 # 1. 环境
 - node 8.11.3
 
 # 2. 基本使用
 
-```
+```js
 // 01.js
 
 const EventEmitter = require('events');
@@ -28,7 +41,7 @@ an event occurred!
 - `emit()`方法可以传不限制数量的参数。
 - 除了箭头函数外，在回调函数内部，this会被绑定到EventEmitter类的实例上
 
-```
+```js
 // 02.js
 const EventEmitter = require('events')
 
@@ -49,7 +62,7 @@ myEmitter.emit('event', 'a', {name:'wdd'})
 
 
 输出：
-```
+```sh
 a { name: 'wdd' } MyEmitter {
   domain: null,
   _events: { event: [ [Function], [Function] ] },
@@ -62,7 +75,7 @@ a { name: 'wdd' } {} false
 
 - emit()法会`同步`按照事件注册的顺序执行回调
 
-```
+```js
 // 03.js
 const EventEmitter = require('events')
 
@@ -100,7 +113,7 @@ console.log(2)
 
 - 使用once去只订阅一次事件
 
-```
+```js
 // 04.js
 const EventEmitter = require('events')
 
@@ -120,7 +133,7 @@ myEmitter.emit('event')
 
 `error`是一个特别的事件名，当这个事件被触发时，如果没有对应的事件监听者，则会导致程序崩溃。
 
-```
+```sh
 events.js:183
       throw er; // Unhandled 'error' event
       ^
@@ -163,7 +176,7 @@ newListener与removeListener是EventEmitter实例的自带的事件，你最好�
 - newListener在订阅者被加入到订阅列表前触发
 - removeListener在订阅者被移除订阅列表后触发
 
-```
+```js
 // 06.js 
 const EventEmitter = require('events')
 
@@ -214,7 +227,7 @@ EventEmitter实例的最大监听数量不是一个实例的所有监听数量�
 如果在事件中发现类似的告警提示`Possible EventEmitter memory leak detected`，要知道从事件最大监听数的角度去排查问题。
 
 
-```
+```js
 // 07.js
 const EventEmitter = require('events')
 
