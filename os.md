@@ -35,9 +35,9 @@ const os = require('os')
 - 获取系统运行时间 `os.uptime()`
 - 获取用户信息 `os.userInfo([options])`
 - 系统常量 `os.constants`
-- 信号常量 `os.constants.signals`, 信号往往以`SIG`开头。常见的有`SIGHUP`，`SIGINT`(按ctrl+c)
-- 错误常量 `os.constants.errno` 错误常量往往以`E`开头 常见的有`EADDRINUSE`(端口已经被占用) `ECONNABORTED`(连接中断) `ECONNREFUSED`(连接被拒绝) `ECONNRESET`(链接被重置)
-- windows系统的错误常量，以`WASE`开头， 如`WSAEMFILE`
+- 信号常量 `os.constants.signals`, 信号往往以`SIG`开头。常见的有`SIGHUP`，`SIGINT`(按ctrl+c)。[更多](https://nodejs.org/api/os.html#os_signal_constants)
+- 错误常量 `os.constants.errno` 错误常量往往以`E`开头 常见的有`EADDRINUSE`(端口已经被占用) `ECONNABORTED`(连接中断) `ECONNREFUSED`(连接被拒绝) `ECONNRESET`(链接被重置) [更多](https://nodejs.org/api/os.html#os_error_constants)
+- windows系统的错误常量，以`WASE`开头， 如`WSAEMFILE` [更多](https://nodejs.org/api/os.html#os_windows_specific_error_constants)
 - 优先级常量 `os.constants.priority` 如`PRIORITY_LOW`
 
 
