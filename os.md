@@ -2,7 +2,8 @@
 
 - [1. 简介](#1-简介)
 - [2. 方法简介](#2-方法简介)
-- [3. 参考](#3-参考)
+- [3. 总结](#3-总结)
+- [4. 参考](#4-参考)
 
 <!-- /TOC -->
 
@@ -41,5 +42,9 @@ const os = require('os')
 - 优先级常量 `os.constants.priority` 如`PRIORITY_LOW`
 
 
-# 3. 参考
+# 3. 总结
+
+一般情况下，我们很少会使用到os模块。但是关于os模块的常量，还是稍微了解一下的。比如说关于系统报错，都是大写`E`开头的关键词，如ECONNRESET，EADDRINUSE 当你遇到此类关键词时，你要知道在Node.js的os模块有关于这些常量的解释。
+
+# 4. 参考
 - [Node.js OS](https://nodejs.org/api/os.html)
